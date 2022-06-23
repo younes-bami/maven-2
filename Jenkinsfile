@@ -1,9 +1,10 @@
-pipeline {
-agent {
-    node { label 'java-build' 
-            } 
-    }
-    stages {
+podTemplate(containers: [
+    containerTemplate(
+        name: 'jnlp', 
+        image: 'jenkins/inbound-agent:latest'
+        )
+  ]) {
+    node(POD_LABEL) {
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
