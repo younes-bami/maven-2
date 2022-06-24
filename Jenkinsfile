@@ -1,8 +1,5 @@
 pipeline {
-agent {
-    node { label 'java-build' 
-            } 
-    }
+
    stages {
         stage('Hello-world'){
 
