@@ -21,10 +21,10 @@ podTemplate(containers: [
   volumes: [
   persistentVolumeClaim(
       mountPath: '/root/.m2', 
-      claimName: 'maven-m2'      )//,
-  //persistentVolumeClaim(
-    //  mountPath: '/home/jenkins/agent/workspace', 
-     // claimName: 'maven-workspace'      )
+      claimName: 'maven-m2'      ),
+  persistentVolumeClaim(
+      mountPath: '/home/jenkins/agent', 
+      claimName: 'maven-workspace'      )
   ]
   
   ) {
