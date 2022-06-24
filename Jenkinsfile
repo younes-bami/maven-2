@@ -17,12 +17,21 @@ podTemplate(containers: [
                         mvn -B -DskipTests clean package                    
                         '''
                 }
-           // }
-            //container ('maven'){
+            }
+            container ('maven'){
                 stage('Test'){
                     sh '''
                         mvn test
 
+                       '''
+
+
+                }
+            }
+            container ('maven'){
+                stage('Deliver'){
+                    sh '''
+                        ./jenkins/scripts/deliver.sh
                        '''
 
 
