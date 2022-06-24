@@ -22,7 +22,7 @@ podTemplate(containers: [
   persistentVolumeClaim(
       mountPath: '/home/vagrant/.m2/repository', 
       claimName: 'maven-m2'      ),
-    persistentVolumeClaim()(
+  persistentVolumeClaim(
       mountPath: '/opt/build/workspace', 
       claimName: 'maven-workspace'      )
   ]
