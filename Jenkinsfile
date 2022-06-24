@@ -5,7 +5,16 @@ podTemplate(containers: [
         image: 'maven:latest', 
         command: 'sleep', 
         args: '30d')
-  ]) {
+  ],
+  volumes: [
+  persistentVolumeClaim(
+      mountPath: '/home/vagrant/.m2/repository', 
+      claimName: 'maven-repo-storage', 
+      readOnly: false
+      )
+  ]
+  
+  ) {
 
     node(POD_LABEL) {
         stage('Get a Python Project') {
