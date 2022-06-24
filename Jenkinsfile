@@ -6,7 +6,7 @@ agent {
    stages {
         stage('Hello-world'){
 
-            agent { docker { image 'hello-world' } }
+            agent { node (POD_LABEL)}
 
             steps{
                     sh '''
