@@ -1,5 +1,13 @@
 podTemplate(containers: [
 
+        containerTemplate(
+        name: 'jnlp', 
+        image: 'jenkins/inbound-agen:latest', 
+        resourceRequestCpu: '500m',
+        resourceLimitCpu: '1000m',
+        resourceRequestMemory: '500Mi',
+        resourceLimitMemory: '1000Mi'
+        ),
     containerTemplate(
         name: 'maven', 
         image: 'maven:latest', 
