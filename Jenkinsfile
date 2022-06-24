@@ -1,8 +1,8 @@
 podTemplate(containers: [
 
     containerTemplate(
-        name: 'python', 
-        image: 'python:latest', 
+        name: 'maven', 
+        image: 'maven:latest', 
         command: 'sleep', 
         args: '30d')
   ]) {
