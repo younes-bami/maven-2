@@ -8,7 +8,7 @@ podTemplate(containers: [
   ]) {
 
    node (POD_LABEL) {
-
+    stage('Main'){
     container (maven){
         stage('Build') {
             steps {
@@ -31,5 +31,6 @@ podTemplate(containers: [
             }
         }
     }
+   }
    }
 }
