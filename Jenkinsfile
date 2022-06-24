@@ -17,10 +17,11 @@ podTemplate(containers: [
                         mvn -B -DskipTests clean package                    
                         '''
                 }
+            }
+            container ('maven'){
                 stage('Test'){
                     sh '''
                         mvn test
-                        junit 'target/surefire-reports/*.xml'
 
                        '''
 
