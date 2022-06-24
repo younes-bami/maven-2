@@ -4,7 +4,11 @@ podTemplate(containers: [
         name: 'maven', 
         image: 'maven:latest', 
         command: 'sleep', 
-        args: '30d')
+        args: '30d',
+        resourceRequestCpu: '500m',
+        resourceLimitCpu: '1000m',
+        resourceRequestMemory: '500Mi',
+        resourceLimitMemory: '1000Mi')
   ],
   volumes: [
   persistentVolumeClaim(
