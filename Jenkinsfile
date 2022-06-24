@@ -9,7 +9,7 @@ podTemplate(containers: [
 
    node (POD_LABEL) {
     stage('Main'){
-    container (maven){
+    container ('maven'){
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
