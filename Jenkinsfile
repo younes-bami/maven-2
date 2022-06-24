@@ -9,6 +9,8 @@ podTemplate(containers: [
 
     node(POD_LABEL) {
         stage('Get a Python Project') {
+            git url: 'https://github.com/younes-bami/maven-2.git', branch: 'master'
+
             container('maven') {
                 stage('Build') {
                     sh '''
