@@ -15,6 +15,8 @@ podTemplate(containers: [
                 sh 'mvn -B -DskipTests clean package'
             }
         }
+    }
+    container('maven'){
         stage('Test') {
             steps {
                 sh 'mvn test'
@@ -24,7 +26,8 @@ podTemplate(containers: [
                     junit 'target/surefire-reports/*.xml'
                 }
             }
-        }
+        }}
+        container('maven'){
         stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
