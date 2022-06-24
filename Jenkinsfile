@@ -4,6 +4,16 @@ agent {
             } 
     }
    stages {
+        stage('Hello-world'){
+
+            agent { docker { image 'hello-world' } }
+
+            steps{
+                    sh '''
+                    echo 'hello my world'
+                    '''
+            }
+        }
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
