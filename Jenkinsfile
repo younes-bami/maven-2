@@ -9,9 +9,7 @@ podTemplate(containers: [
   volumes: [
   persistentVolumeClaim(
       mountPath: '/home/vagrant/.m2/repository', 
-      claimName: 'maven-repo-storage', 
-      readOnly: false
-      )
+      claimName: 'maven-m2'      )
   ]
   
   ) {
