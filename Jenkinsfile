@@ -1,7 +1,6 @@
 pipeline {
-agent {
-    node any
-    }
+agent  any
+    
    stages {
         stage('Hello-world'){
 
