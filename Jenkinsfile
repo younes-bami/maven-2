@@ -5,13 +5,12 @@ podTemplate(containers: [
         image: 'maven:latest', 
         command: 'sleep', 
         args: '30d')
+  ],
+  volumes: [
+  persistentVolumeClaim(
+      mountPath: '/home/vagrant/.m2/repository', 
+      claimName: 'maven-m2'      )
   ]
-  //,
-  //volumes: [
-  //persistentVolumeClaim(
-  //    //mountPath: '/home/vagrant/.m2/repository', 
-  //    claimName: 'maven-m2'      )
-  //]
   
   ) {
 
