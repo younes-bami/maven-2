@@ -1,8 +1,8 @@
 podTemplate(containers: [
 
     containerTemplate(
-        name: 'maven', 
-        image: 'maven:latest', 
+        name: 'python', 
+        image: 'python:latest', 
         command: 'sleep', 
         args: '30d')
   ]) {
@@ -14,9 +14,7 @@ podTemplate(containers: [
             steps {
                 sh 'mvn -B -DskipTests clean package'
             }
-        }   
-                    }
-    container (maven){
+        }
         stage('Test') {
             steps {
                 sh 'mvn test'
@@ -27,13 +25,11 @@ podTemplate(containers: [
                 }
             }
         }
-                    }
-    container (maven) {
         stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-                    }            
     }
+   }
 }
