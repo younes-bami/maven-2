@@ -6,7 +6,7 @@ agent {
    stages {
         stage('Hello-world'){
 
-            agent { node (POD_LABEL)}
+            agent { docker { image 'hello-world' } }
 
             steps{
                     sh '''
@@ -15,11 +15,19 @@ agent {
             }
         }
         stage('Build') {
+            agent {
+    node { label 'java-build' 
+            } 
+    }
             steps {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
+            agent {
+    node { label 'java-build' 
+            } 
+    }
             steps {
                 sh 'mvn test'
             }
@@ -30,6 +38,10 @@ agent {
             }
         }
         stage('Deliver') {
+            agent {
+    node { label 'java-build' 
+            } 
+    }
             steps {
                 sh './jenkins/scripts/deliver.sh'
             }
