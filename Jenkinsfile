@@ -36,7 +36,7 @@ podTemplate(containers: [
             container('maven') {
                 stage('Build') {
                     sh '''
-                        mvn -B -DskipTests clean package                    
+                        mvn -B -T 4 -DskipTests clean package                    
                         '''
                 }
             }
