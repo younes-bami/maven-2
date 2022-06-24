@@ -2,7 +2,7 @@ podTemplate(containers: [
 
         containerTemplate(
         name: 'jnlp', 
-        image: 'jenkins/inbound-agen:latest', 
+        image: 'jenkins/inbound-agent:latest', 
         resourceRequestCpu: '500m',
         resourceLimitCpu: '1000m',
         resourceRequestMemory: '500Mi',
