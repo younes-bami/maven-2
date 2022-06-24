@@ -3,7 +3,7 @@ agent {
     node { label 'java-build' 
             } 
     }
-//    stages {
+   stages {
 //        stage('Build') {
 //            steps {
 //                sh 'mvn -B -DskipTests clean package'
