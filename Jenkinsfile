@@ -39,7 +39,7 @@ podTemplate(containers: [
             container ('maven'){
                 stage('Test'){
                     sh '''
-                        mvn -T 4 test --offline
+                        mvn -T 4 test 
 
                        '''
 
